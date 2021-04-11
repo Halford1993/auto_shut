@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 public class Window extends JFrame{
 	private JTextField tfTime;
 	public Window() {
+		setTitle("Auto Shut-down");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setSize(520,300);
 		getContentPane().setLayout(null);
