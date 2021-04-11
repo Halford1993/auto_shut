@@ -37,10 +37,10 @@ public class Window extends JFrame{
 		cbTimeUnit.setBounds(305, 101, 95, 22);
 		getContentPane().add(cbTimeUnit);
 		
-		JButton btn = new JButton("Start");
-		btn.setBounds(206, 170, 89, 23);
-		getContentPane().add(btn);
-		btn.addActionListener(new ActionListener() {
+		JButton btnStart = new JButton("Start");
+		btnStart.setBounds(149, 171, 89, 23);
+		getContentPane().add(btnStart);
+		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int time = Integer.parseInt(tfTime.getText());
 				int unit = cbTimeUnit.getSelectedIndex();
@@ -56,13 +56,25 @@ public class Window extends JFrame{
 					break;
 				}
 				try {
-					Main.executing(time);
+					Main.start(time);
 				} catch (Exception e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
 		});
+		
+		JButton btnStop = new JButton("Stop");
+		btnStop.setBounds(267, 171, 89, 23);
+		getContentPane().add(btnStop);
+		btnStop.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Main.stop();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});		
 		
 		setLocationRelativeTo(null);
 		setVisible(true);

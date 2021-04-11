@@ -10,13 +10,19 @@ public class Main {
 		new Window();
 	}
 	
-	public static void executing(int time) throws Exception {
+	public static void start(int time) throws Exception {
 		Runtime run = Runtime.getRuntime();
 		//here we abort previous scheduled shut down (if any)
 		Process pr = run.exec("shutdown -a");
 		pr.waitFor();
 		String cmd = "shutdown -s -t " + time;
 		pr = run.exec(cmd);
+		pr.waitFor();
+	}
+	
+	public static void stop() throws Exception {
+		Runtime run = Runtime.getRuntime();
+		Process pr = run.exec("shutdown -a");
 		pr.waitFor();
 	}
 }
